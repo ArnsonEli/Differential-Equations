@@ -1,0 +1,17 @@
+import math
+starting_amount = int(input("Starting Amount: "))
+interest = float(input("Interest (yearly): "))
+monthly_addition = int(input("Monthly Addition: "))
+years_to_calc = int(input("Amount of years: "))
+monthly_addition_to_yearly = 12*monthly_addition
+monthly_addition_to_yearly_intr = monthly_addition_to_yearly / interest
+c = starting_amount + monthly_addition_to_yearly_intr
+result = c*(math.e**(interest*years_to_calc))-monthly_addition_to_yearly_intr
+
+print(f'''
+Calculating...
+The Differential Equation: P(t) = {c}*e^({interest}*t)-{monthly_addition_to_yearly_intr}
+Money Invested: {starting_amount + monthly_addition*years_to_calc}
+Interest Paid: {int(result - (starting_amount + monthly_addition*years_to_calc))}
+Total Investment: {int(result)}
+''')
